@@ -7,7 +7,7 @@
 #    - configs/demo.yaml
 #    - scripts/demo.py
 #    - scripts/plot_metrics.py
-#    - slides/Professor_Demo_Slides.md
+#    - slides/Demo_Slides.md
 
 # 2) Ensure venv is active and deps installed:
 python -m pip install --upgrade pip setuptools wheel
