@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run ARA ML demo",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/arms_race_alignment/cli.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--config",
+        "configs/default.yaml"
+      ]
+    }
+  ]
+}

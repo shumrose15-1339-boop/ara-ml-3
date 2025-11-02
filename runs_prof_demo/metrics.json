@@ -1,0 +1,26 @@
+{
+  "time_to_mitigation": NaN,
+  "robustness_regret": 0.0,
+  "rolling": [
+    {
+      "t": 3,
+      "roll_fail_rate": 0.0
+    },
+    {
+      "t": 6,
+      "roll_fail_rate": 0.0
+    },
+    {
+      "t": 9,
+      "roll_fail_rate": 0.0
+    },
+    {
+      "t": 12,
+      "roll_fail_rate": 0.0
+    },
+    {
+      "t": 15,
+      "roll_fail_rate": 0.0
+    }
+  ]
+}

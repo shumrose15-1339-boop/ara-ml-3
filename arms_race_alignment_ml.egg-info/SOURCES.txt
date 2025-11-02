@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+./arms_race_alignment/__init__.py
+./arms_race_alignment/attacks.py
+./arms_race_alignment/cli.py
+./arms_race_alignment/data.py
+./arms_race_alignment/detectors.py
+./arms_race_alignment/metrics.py
+./arms_race_alignment/pipeline.py
+./arms_race_alignment/updater.py
+arms_race_alignment_ml.egg-info/PKG-INFO
+arms_race_alignment_ml.egg-info/SOURCES.txt
+arms_race_alignment_ml.egg-info/dependency_links.txt
+arms_race_alignment_ml.egg-info/requires.txt
+arms_race_alignment_ml.egg-info/top_level.txt

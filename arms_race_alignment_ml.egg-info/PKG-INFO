@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: arms-race-alignment-ml
+Version: 0.2.0
+Summary: Pure-ML defender-in-the-loop jailbreak defense demo
+Author: You
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.23
+Requires-Dist: pandas>=2.0
+Requires-Dist: scikit-learn>=1.3
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: tqdm>=4.66
+Requires-Dist: regex>=2023.12.25
+Requires-Dist: matplotlib>=3.8
+Requires-Dist: joblib>=1.3
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: ruff>=0.6.9; extra == "dev"
+Requires-Dist: pre-commit>=3.8.0; extra == "dev"
+Requires-Dist: ipykernel; extra == "dev"
+
+
+# ARA (Pure-ML Demo)
+
+This version replaces heuristics with **scikit-learn** models:
+
+- **SafetyModel:** TF-IDF (char+word ngrams) → Logistic Regression (harmful vs benign)
+- **ConsistencyDetector:** IsolationForest trained on *benign* TF-IDF vectors for anomaly/OOD
+
+## Quickstart
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -e .[dev]
+python scripts/seed_data.py
+python -m arms_race_alignment.cli --config configs/default.yaml
+```
+
+Metrics printed at the end: Time-to-Mitigation, Robustness-Regret, Rolling-robustness.

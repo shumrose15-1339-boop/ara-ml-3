@@ -1,0 +1,28 @@
+
+seed: 42
+data:
+  root: data
+  train_file: data_toy_train.jsonl
+  eval_file: data_toy_eval.jsonl
+  languages: ["en", "bn", "hi", "es", "ar", "vi", "id", "tr", "sw", "pt", "bn-en", "hi-en"]
+  max_rows: 600
+
+model:
+  name: "ml-policy"
+  update_on_failure: true
+
+detector:
+  type: "ml_isoforest"
+  ood_threshold: -0.2
+
+attack:
+  generations_per_step: 6
+  mutation_types: ["translate", "paraphrase", "codemix", "indirection"]
+  max_depth: 3
+
+train:
+  steps: 15
+  eval_every: 3
+
+logging:
+  dir: "runs_prof_demo"
