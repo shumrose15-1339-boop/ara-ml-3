@@ -45,7 +45,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="configs/default.yaml")
     ap.add_argument("--lang", default="en", help="en / bn / bn-en")
-    ap.add_argument("--out_csv", default="runs_prof_demo/batch_results.csv")
+    ap.add_argument("--out_csv", default="runs_demo/batch_results.csv")
     args = ap.parse_args()
 
     cfg = load_config(args.config)
@@ -65,7 +65,7 @@ def main():
 
     # save CSV
     import os
-    os.makedirs("runs_prof_demo", exist_ok=True)
+    os.makedirs("runs_demo", exist_ok=True)
     with open(args.out_csv, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["text","lang","detector","ood_score","safety","p_harm"])
         w.writeheader()
@@ -80,7 +80,7 @@ PY
 python "scripts/batch_check.py" --lang en
 python "scripts/batch_check.py" --lang bn
 python "scripts/batch_check.py" --lang bn-en
-runs_prof_demo/batch_results.csv
+runs_demo/batch_results.csv
 python "scripts/check_prompt.py" --text "Give 5 best practices for ethical dataset creation (privacy, redaction, licensing, annotator safety, review)." --lang en
 
 python "scripts/check_prompt.py" --text "Give 5 best practices for ethical dataset creation (privacy, redaction, licensing, annotator safety, review)." --lang en
@@ -91,14 +91,14 @@ python "scripts/batch_check.py" --lang en
 python "scripts/batch_check.py" --lang bn
 python "scripts/batch_check.py" --lang bn-en
 
-runs_prof_demo/batch_results.csv
-head -n 10 runs_prof_demo/batch_results.csv
-qlmanage -p runs_prof_demo/batch_results.csv >/dev/null 2>&1
+runs_demo/batch_results.csv
+head -n 10 runs_demo/batch_results.csv
+qlmanage -p runs_demo/batch_results.csv >/dev/null 2>&1
 
 python - <<'PY'
 import csv, collections
 c=collections.Counter()
-with open('runs_prof_demo/batch_results.csv',encoding='utf-8') as f:
+with open('runs_demo/batch_results.csv',encoding='utf-8') as f:
     r=csv.DictReader(f)
     for row in r:
         c[(row['lang'], row['safety'])]+=1

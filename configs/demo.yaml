@@ -25,4 +25,4 @@ train:
   eval_every: 3
 
 logging:
-  dir: "runs_prof_demo"
+  dir: "runs_demo"

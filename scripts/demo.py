@@ -11,7 +11,7 @@ def run_prof_demo(cfg_path: str, safety_threshold: float = 0.7, ood_threshold: f
 
     data_train = os.path.join(cfg["data"]["root"], cfg["data"]["train_file"])
     if not os.path.exists(data_train):
-        print("[prof_demo] Seeding toy data...")
+        print("[demo] Seeding toy data...")
         subprocess.run([sys.executable, "scripts/seed_data.py"], check=True)
 
     pipe = DefenderPipeline(cfg)
@@ -56,16 +56,16 @@ def run_prof_demo(cfg_path: str, safety_threshold: float = 0.7, ood_threshold: f
     png_path = os.path.join(out_dir, "rolling.png")
     plt.savefig(png_path)
 
-    print("\n[prof_demo] Saved:")
+    print("\n[demo] Saved:")
     print("  -", json_path)
     print("  -", csv_path)
     print("  -", png_path)
-    print("\n[prof_demo] Summary:")
+    print("\n[demo] Summary:")
     print(json.dumps(out, indent=2))
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="configs/professor_demo.yaml")
+    ap.add_argument("--config", default="configs/demo.yaml")
     ap.add_argument("--safety_threshold", type=float, default=0.7)
     ap.add_argument("--ood_threshold", type=float, default=None)
     args = ap.parse_args()

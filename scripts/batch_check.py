@@ -14,7 +14,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="configs/default.yaml")
     ap.add_argument("--lang", default="en")  # en / bn / bn-en
-    ap.add_argument("--out_csv", default="runs_prof_demo/batch_results.csv")
+    ap.add_argument("--out_csv", default="runs_demo/batch_results.csv")
     args = ap.parse_args()
 
     cfg = load_config(args.config)
@@ -35,7 +35,7 @@ def main():
                      "p_harm": f"{res.score:.3f}"})
 
     import os
-    os.makedirs("runs_prof_demo", exist_ok=True)
+    os.makedirs("runs_demo", exist_ok=True)
     with open(args.out_csv, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["text","lang","detector","ood_score","safety","p_harm"])
         w.writeheader()

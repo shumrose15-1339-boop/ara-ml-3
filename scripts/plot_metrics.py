@@ -23,7 +23,7 @@ def plot_from_csv(csv_path: str, out_png: str):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--runs_dir", default="runs_prof_demo")
+    ap.add_argument("--runs_dir", default="runs_demo")
     args = ap.parse_args()
     csv_path = os.path.join(args.runs_dir, "rolling.csv")
     png_path = os.path.join(args.runs_dir, "rolling_replot.png")
